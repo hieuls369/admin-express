@@ -1,0 +1,27 @@
+extends ../layout/commonLayout 
+
+block content
+      h1 title
+      table.table.table-success.table-striped
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') ID
+            th(scope='col') Name
+            th(scope='col') Age
+            th(scope='col') Phone
+            th(scope='col') Password
+            th(scope='col') Action
+        tbody
+          each user, key in data
+            tr
+              th(scope='row')=key
+              td=user.id
+              td=user.name
+              td=user.age
+              td=user.phone
+              td=user.password
+              td
+                a.btn.btn-outline-secondary(href=`user/view/${user.id}`) View
+                a.btn.btn-outline-danger.ms-2(href=`user/delete/${user.id}`) Delete
+                
