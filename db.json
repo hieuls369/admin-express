@@ -1,18 +1,36 @@
 {
   "user": [
     {
-      "name": "hieu",
-      "age": "21",
-      "phone": "1203999",
-      "password": "9cdfb439c7876e703e307864c9167a15",
-      "id": "UrKGeGLCQ"
-    },
-    {
       "name": "Henry",
-      "age": "14",
+      "age": "12",
       "phone": "0336424385",
       "password": "202cb962ac59075b964b07152d234b70",
-      "id": "td6pMvC-r"
+      "id": "KAD9Q_1se",
+      "avatar": "upload/134ae4e64de1dd909a18e956967a774d"
+    },
+    {
+      "name": "Pixel",
+      "age": "12",
+      "phone": "0336424385",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "id": "2OiW9q0tS",
+      "avatar": "upload/d347ef6c6b2fb261eea9f17323033b64"
+    },
+    {
+      "name": "asd",
+      "age": "12",
+      "phone": "123",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "id": "gFbXAVTdI",
+      "avatar": "upload/a97210a49516bbd8b38e11dd68d251d5"
+    },
+    {
+      "name": "Patra",
+      "age": "12",
+      "phone": "123",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "id": "dbu8skC60",
+      "avatar": "upload/343a1db075d5a0ed309dcb486c9aa238"
     }
   ],
   "product": [

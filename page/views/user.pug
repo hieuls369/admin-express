@@ -8,6 +8,7 @@ block content
         thead
           tr
             th(scope='col') #
+            th(scope='col') Avatar
             th(scope='col') ID
             th(scope='col') Name
             th(scope='col') Age
@@ -16,8 +17,10 @@ block content
             th(scope='col') Action
         tbody
           each user, key in data
-            tr
+            tr.align-middle
               th(scope='row')=key
+              td 
+                img(src=user.avatar, width='60') 
               td=user.id
               td=user.name
               td=user.age
@@ -25,5 +28,5 @@ block content
               td=user.password
               td
                 a.btn.btn-outline-secondary(href=`user/view/${user.id}`) View
-                a.btn.btn-outline-danger.ms-2(href=`user/delete/${user.id}`) Delete
+                a.btn.btn-outline-danger.ms-2.disabled(href=`user/delete/${user.id}`) Delete
                 

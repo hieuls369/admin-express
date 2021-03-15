@@ -7,7 +7,7 @@ const validation = require('../validate/auth.validate');
 const router = express.Router();
 
 
-
+router.get('/guest', controller.guest);
 
 router.get('/login', controller.loginPage);
 

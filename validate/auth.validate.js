@@ -1,5 +1,6 @@
 const db = require('../db');
 const md5 = require('md5');
+const { conforms } = require('../db');
 
 module.exports.loginValidate = (req, res, next) => {
     var existUser = db.get('user').find({name: req.body.name}).value();
@@ -25,17 +26,15 @@ module.exports.loginValidate = (req, res, next) => {
 }
 
 module.exports.cookie = (req, res, next) => {
-    if(!req.signedCookies.userID){
-        res.redirect('/auth/login');
+    
+    var user = null;
+
+    user = db.get('user').find({id: req.signedCookies.userID}).value();
+    if(user){
+        res.locals.user = user;
+        next();
         return;
     }
-
-    var user = db.get('user').find({id: req.signedCookies.userID}).value();
-    if(!user){
-        res.redirect('/auth/login');
-        return;
-    }
-
-    res.locals.user = user;
+    res.locals.user = 'Guest';
     next();
 }

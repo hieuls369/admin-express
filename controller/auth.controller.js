@@ -14,3 +14,7 @@ module.exports.login = (req, res) => {
     res.redirect('/user');
 }
 
+module.exports.guest = (req, res) => {
+    res.redirect('/user');
+}
+

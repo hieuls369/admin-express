@@ -7,7 +7,7 @@ const router = express.Router();
 
 //multer
 const multer = require('multer');
-const upload = multer({ dest: '../public/upload/'})
+const upload = multer({ dest: './public/upload/'})
 
 router.get('/', controller.home);
 
@@ -17,9 +17,8 @@ router.get('/view/:id', controller.view);
 
 router.get('/create', controller.create);
 
-router.post('/create',upload.single('avatar'), validation.validatePost, controller.postCreate);
+router.post('/create', upload.single('avatar'), controller.postCreate);
 
 router.get('/delete/:id', controller.delete);
-
 
 module.exports = router;

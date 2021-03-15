@@ -18,17 +18,32 @@ html
                         button.btn.btn-outline-secondary.btnSubmit(type='submit') Search
                 li.col.d-flex.justify-content-between
                     div
-                    .dropdown.ms-2.drop-user
-                        button#userDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')= user.name
-                        ul.dropdown-menu.mr-5.dropdown-menu-end
-                            li
-                                a.dropdown-item(href='#') Check-in
-                            li
-                                a.dropdown-item(href='#') Account info
-                            li
-                                a.dropdown-item(href='#') Offcial site
-                            li
-                                a.dropdown-item.border-top(href='/auth/login') Logout
+                    - var exist = user.name ? true : false;
+                    if !exist
+                        .dropdown.ms-2.drop-user
+                            button#userDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false') Guest 
+                            ul.dropdown-menu.mr-5.dropdown-menu-end
+                                li
+                                    a.dropdown-item(href='#') Check-in
+                                li
+                                    a.dropdown-item(href='#') Offcial site
+                                li
+                                    a.dropdown-item.border-top(href='/user/create') Sign up
+                                li
+                                    a.dropdown-item.border-top(href='/auth/login') Log in
+                    else
+                        .dropdown.ms-2.drop-user
+                            button#userDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')= user.name
+                            ul.dropdown-menu.mr-5.dropdown-menu-end
+                                li
+                                    a.dropdown-item(href='#') Check-in
+                                li
+                                    a.dropdown-item(href='#') Account info
+                                li
+                                    a.dropdown-item(href='#') Offcial site
+                                li
+                                    a.dropdown-item.border-top(href='/auth/login') Logout
+
         main.d-flex
             div.user-list.p-0
                 a(href='#') Home

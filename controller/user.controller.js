@@ -3,8 +3,7 @@ const db = require('../db');
 const shortid = require('shortid');
 const md5 = require('md5');
 
-const multer = require('multer');
-const upload = multer({ dest: '../public/upload/'})
+
 
 module.exports.home = (req, res) => {
     res.render('user', {
@@ -43,9 +42,10 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.postCreate = (req, res) => {
+    console.log('mic check')
     req.body.id = shortid.generate();
     req.body.password = md5(req.body.password);
-    // db.get('user').push(req.body).write();
-    // res.redirect('/user');
-    console.log(req.body)
+    req.body.avatar = req.file.path.split('/').slice(1).join('/');
+    db.get('user').push(req.body).write();
+    res.redirect('/user');
 };
