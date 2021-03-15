@@ -1,4 +1,7 @@
-
+*{
+    font-family: 'Raleway', sans-serif;
+}
+ 
 a{
     text-decoration: none;
 }
@@ -23,30 +26,37 @@ body{
 }
 
 /* list view */
+
+.user-list > a{
+    display: block;
+    list-style: none;
+    padding: 20px 20px;
+    color: #fff;
+    font-weight: bolder;
+    transition: background-color .4s ease-in-out;
+}
+
+.user-list > a:hover{
+    background-color: rgb(126, 125, 125);
+}
+
+.user-list > a:first-child{
+    padding: 40px 20px;
+}
+
 .user-list{
     height: 100%;
     width: 200px;
     position: fixed;
     left: 0;
     overflow-x: hidden;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(66, 66, 66);
     transition: width .3s ease-in-out;
     z-index: 1;
     
 }
 .title{
     transition: padding-left .3s ease-in-out;
-}
-
-.user-list > li{
-    text-align: center;
-    list-style: none;
-    padding: 40px 5px;
-    border-bottom: 1px solid rgb(145, 145, 145);   
-}
-
-.user-list > li:first-child{
-    padding: 10px 10px;
 }
 
 .table-custom{
@@ -59,7 +69,7 @@ body{
 /* product */
 
 .card{
-    width: 25%;
+    width: 20%;
     min-width: 200px;
     z-index: 0;
 }

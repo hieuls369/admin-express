@@ -1,6 +1,6 @@
 const db = require('../db')
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 4;
 
 function maxPageCal(){
     var productDB = db.get('product').value();
