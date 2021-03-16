@@ -9,6 +9,7 @@ const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: './public/upload/'})
 
+//user routing
 router.get('/', controller.home);
 
 router.get('/search', controller.search);

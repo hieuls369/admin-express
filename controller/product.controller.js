@@ -1,7 +1,9 @@
 const db = require('../db')
 
+//set max item per page
 const PAGE_SIZE = 4;
 
+//calculate the max page base total item in database
 function maxPageCal(){
     var productDB = db.get('product').value();
     var productSize = productDB.length;
@@ -10,6 +12,7 @@ function maxPageCal(){
     return Math.floor(maxPage);
 }
 
+//navigate between page
 module.exports.pagination = (req, res) => {
     var page = req.params.pageNumber;
     var productDB = db.get('product').value();
@@ -24,6 +27,7 @@ module.exports.pagination = (req, res) => {
 
 }
 
+//display current page of product
 module.exports.product = (req, res) => {
     var productDB = db.get('product').value();
     res.render('product', {

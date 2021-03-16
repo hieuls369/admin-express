@@ -2,6 +2,8 @@ const db = require('../db');
 const md5 = require('md5');
 const { conforms } = require('../db');
 
+
+//validate for login form
 module.exports.loginValidate = (req, res, next) => {
     var existUser = db.get('user').find({name: req.body.name}).value();
 
@@ -25,6 +27,7 @@ module.exports.loginValidate = (req, res, next) => {
     next();
 }
 
+//validate exist cookie of an user
 module.exports.cookie = (req, res, next) => {
     
     var user = null;

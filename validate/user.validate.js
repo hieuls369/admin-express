@@ -1,3 +1,5 @@
+
+//validate create user form
 module.exports.validatePost = (req, res, next) => {
     
     if(!req.body.name || !req.body.age || !req.body.phone || !req.body.password){

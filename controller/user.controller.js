@@ -4,7 +4,7 @@ const shortid = require('shortid');
 const md5 = require('md5');
 
 
-
+//display manage user screen with user data
 module.exports.home = (req, res) => {
     res.render('user', {
         data: db.get('user').value(),
@@ -12,6 +12,7 @@ module.exports.home = (req, res) => {
     })
 };
 
+//display searched user data by name
 module.exports.search = (req, res) => {
     var text = req.query.search;
     var listGet = db.get('user').filter(item => item.name.toLowerCase().includes(text.toLowerCase())).value();
@@ -21,6 +22,7 @@ module.exports.search = (req, res) => {
     })
 };
 
+//display details of an user
 module.exports.view = (req, res) => {
     var id = req.params.id;
     var users = db.get('user').find({ id: id }).value();
@@ -29,6 +31,8 @@ module.exports.view = (req, res) => {
     });
 };
 
+
+//delete user (bug with when delete all)
 module.exports.delete = (req, res) => {
     var userId = req.params.id;
     var users = db.get('user').filter(user => user.id !== userId).value();
@@ -36,13 +40,13 @@ module.exports.delete = (req, res) => {
     res.redirect('/user')
 };
 
-
+//display create user screen
 module.exports.create = (req, res) => {
     res.render('create');
 };
 
+//push the created data into the database
 module.exports.postCreate = (req, res) => {
-    console.log('mic check')
     req.body.id = shortid.generate();
     req.body.password = md5(req.body.password);
     req.body.avatar = req.file.path.split('/').slice(1).join('/');
