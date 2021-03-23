@@ -13,4 +13,8 @@ router.get('/login', controller.loginPage);
 
 router.post('/login', validation.loginValidate, controller.login);
 
+router.get('/logout', controller.logout);
+
+router.get('/loginUser', controller.loginContinue);
+
 module.exports = router;

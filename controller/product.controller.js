@@ -17,8 +17,7 @@ module.exports.pagination = (req, res) => {
     var page = req.params.pageNumber;
     var productDB = db.get('product').value();
     var start = (page - 1) * PAGE_SIZE;
-    var end = (page - 1) * PAGE_SIZE + PAGE_SIZE; 
-
+    var end = (page - 1) * PAGE_SIZE + PAGE_SIZE; ;
     res.render('product', {
         products: productDB.slice(start, end),
         pageNumber: maxPageCal(),

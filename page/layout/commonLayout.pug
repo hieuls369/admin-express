@@ -30,7 +30,7 @@ html
                                 li
                                     a.dropdown-item.border-top(href='/user/create') Sign up
                                 li
-                                    a.dropdown-item.border-top(href='/auth/login') Log in
+                                    a.dropdown-item.border-top(href='/auth/loginUser') Log in
                     else
                         .dropdown.ms-2.drop-user
                             button#userDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')= user.name
@@ -42,7 +42,7 @@ html
                                 li
                                     a.dropdown-item(href='#') Offcial site
                                 li
-                                    a.dropdown-item.border-top(href='/auth/login') Logout
+                                    a.dropdown-item.border-top(href='/auth/logout') Logout
 
         main.d-flex
             div.user-list.p-0

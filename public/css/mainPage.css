@@ -81,6 +81,12 @@ body{
 .color-display{
     background-color: rgb(66, 66, 66);
 }
+.btn-remove{
+    font-size: 30px;
+}
+.btn-remove:hover{
+    color: crimson;
+}
 
 
 /* media-query */

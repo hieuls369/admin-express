@@ -8,4 +8,6 @@ const router = express.Router();
 //cart routing
 router.get('/', controller.cart);
 
+router.get('/add/:productId', controller.cartAdd);
+
 module.exports = router;

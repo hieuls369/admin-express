@@ -12,9 +12,6 @@ const authRouter = require('./router/auth.router');
 const productRouter = require('./router/product.router');
 const cartRouter = require('./router/cart.router');
 
-//session for guest
-const sessionMiddle = require('./middleware/session.middleware');
-
 //validate cookie for user
 const validation = require('./validate/auth.validate');
 
@@ -24,7 +21,7 @@ app.set('views', './page/views');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
-app.use(sessionMiddle.session);
+
 //using static img from internal file
 app.use(express.static('public'));
 

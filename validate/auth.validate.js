@@ -1,6 +1,7 @@
 const db = require('../db');
 const md5 = require('md5');
 const { conforms } = require('../db');
+const shortId = require('shortid');
 
 
 //validate for login form
@@ -29,6 +30,8 @@ module.exports.loginValidate = (req, res, next) => {
 
 //validate exist cookie of an user
 module.exports.cookie = (req, res, next) => {
+
+    
     
     var user = null;
 
@@ -37,6 +40,15 @@ module.exports.cookie = (req, res, next) => {
         res.locals.user = user;
         next();
         return;
+    }
+    if(!req.signedCookies.sessionId){
+        var sessionId = shortId.generate();
+        res.cookie('sessionId', sessionId, {
+            signed: true
+        })
+        db.get('session').push({
+            id: sessionId
+        }).write();
     }
     res.locals.user = 'Guest';
     next();
